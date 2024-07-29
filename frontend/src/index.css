@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins&display=swap');
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* font-family: "Poppins", sans-serif */
+/* font-family: "Playfair Display", serif */
+
+/* //navBar CSS */
+.navbar{
+    font-size: 17px;
+    font-family:"Poppins", sans-serif;
+    line-height: 26px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 6px -6px gray;
+    --webkit-box-show: 0 8px 6px -6px gray;
+    border-bottom: 0.3px solid grey;
+}
+
+.nav-link{
+    font-weight: 300;
+}
+
+.active{
+    border-bottom: 2px solid black;
+}
+.navbar-brand{
+    font-weight: 700;
+    letter-spacing: 3px;
+
+}
+
+/* //////////////Footer//////////// */
+.footer{
+    background: linear-gradient(to right, #434343, #000);
+    color: white;
+    padding: 10px;
+}
+.footp{
+    text-align: center;
+    margin-top: 3px;
+}
+.footer a{
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    
+}
+.footer a:hover{
+    color: aliceblue;
+    border-bottom: 2px solid grey;
+}
