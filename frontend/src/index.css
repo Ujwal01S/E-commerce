@@ -56,3 +56,76 @@
     color: aliceblue;
     border-bottom: 2px solid grey;
 }
+
+/* /////////////////////Error PNG//////////////////// */
+.pnf{
+    min-height: 65vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.pnf-title{
+    font-size: 100px;
+    font-weight: bold;
+}
+.pnf-heading{
+    font-weight: normal;
+}
+.pnf-btn{
+    border: 2px solid gainsboro;
+    text-decoration: none;
+    padding: 10px 12px;
+    color: black;
+    margin-top: 10px;
+}
+.pnf-btn:hover{
+    background-color: rgb(217, 230, 225);
+    padding: 13px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ///////////////////////////COntactus///////////////// */
+.contact-us{
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .con-1{
+    display: grid;
+    grid-template-columns:756px ;
+    margin: 6px;
+}
+
+.con-2{
+    display: grid;
+    grid-template-columns: 768px;
+    
+} */
+
+/* ///////////////////About////////////// */
+.aboutus{
+    min-width: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ////////////////////////Register/////////////////// */
+.register{
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
