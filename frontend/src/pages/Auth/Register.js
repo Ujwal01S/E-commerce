@@ -11,6 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
+    const [answer, setAnswer] = useState('');
     
     const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const Register = () => {
         //sending the data to our backend
         try {
           const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,
-            {name, email, password, phone, address}
+            {name, email, password, phone, address, answer}
           );
           if(res.data && res.data.success){
             toast.success(res.data && res.data.message);
@@ -40,7 +41,8 @@ const Register = () => {
           toast.error("Something went wrong");
         }
 
-
+        
+       
 
         // emptying input
         setName('');
@@ -82,7 +84,7 @@ const Register = () => {
                 type="password"
                 className="form-control"
                 id="InputPassword"
-                placeholder="Password"
+                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -105,6 +107,16 @@ const Register = () => {
                 placeholder="Address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="InputAnswer"
+                placeholder="Answer"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
               />
             </div>
             <button type="submit" className="btn btn-primary">
