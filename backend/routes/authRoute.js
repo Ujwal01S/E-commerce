@@ -24,9 +24,14 @@ import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
  //test router for token verification 
  router.get('/test', requireSignIn, isAdmin, testController);
 
- //proteced route for auth
+ //proteced user route for auth
  router.get('/user-auth', requireSignIn, (req, res) => {
     res.status(200).send({ok : true});
  });
+
+  //proteced admin route for auth
+  router.get('/admin-auth', requireSignIn, isAdmin, (req, res) => {
+   res.status(200).send({ok : true});
+});
 
  export default router;

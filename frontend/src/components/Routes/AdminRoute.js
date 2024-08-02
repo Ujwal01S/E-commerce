@@ -4,13 +4,13 @@ import axios from "axios";
 import { Outlet } from "react-router-dom";
 import Spinner from "../Spinner";
 
-export const PrivateRoute = () => {
+export const AdminRoute = () => {
     const [ok, setOk] = useState(false);
     const [auth, setAuth] = useAuth();
 
     useEffect(()=> {
         const authCheck = async() => {
-            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/user-auth`, {
+            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/admin-auth`, {
                 headers:{
                     "Authorization" : auth?.token
                 }
@@ -26,7 +26,7 @@ export const PrivateRoute = () => {
         if(auth?.token) authCheck(); 
 
     }, [auth?.token]);
-    return ok ? <Outlet /> : <Spinner/>;
+    return ok ? <Outlet /> : <Spinner path=""/>;
 };
 
 //backend ma requiredSingIn ma authenticate garna pathako ho yesma backend lae response pathauxa
