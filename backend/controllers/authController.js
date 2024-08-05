@@ -1,5 +1,5 @@
 
-import { comparePassword, hashPassword } from "../helpers/authHelper.js";
+import {comparePassword, hashPassword } from '../helpers/authHelper.js';
 import userModel from "../models/userModel.js";
 import JWT from 'jsonwebtoken';
 
@@ -43,7 +43,7 @@ export const registerController = async(req, res) => {
             message:'User Registered Successfully',
             user,
 
-        })
+        });
         
     } catch (error) {
         console.log(error);
@@ -51,7 +51,7 @@ export const registerController = async(req, res) => {
             success:false,
             message:'Error in Registration',
             error,
-        })
+        });
     }
 };  //this is callback function
 
@@ -81,16 +81,17 @@ export const loginController = async (req, res)=> {
             });
         }
         //token
-        const token = await JWT.sign({_id:user.id}, process.env.JWT_SECRET, {expiresIn: '7d'});
+        const token = await JWT.sign({_id:user._id}, process.env.JWT_SECRET, {expiresIn: '7d'});
         res.status(200).send({
             success:true,
             message:'login successfully',
             user:{
+                _id:user._id,
                 name:user.name,
                 email:user.email,
                 phone:user.phone,
                 address:user.address,
-                role:user.role
+                role:user.role,
             },
             token,
         });

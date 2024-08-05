@@ -10,7 +10,8 @@ export const AdminRoute = () => {
 
     useEffect(()=> {
         const authCheck = async() => {
-            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/admin-auth`, {
+            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/admin-auth`
+                , {
                 headers:{
                     "Authorization" : auth?.token
                 }
@@ -33,3 +34,7 @@ export const AdminRoute = () => {
 //jun chai hamiley res ma capture garya chau ani if check ma haley ra verified logic pathauchau
 
 //token chaina vaney spinner purauha
+
+
+//git bata tanya
+
