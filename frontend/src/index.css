@@ -129,3 +129,9 @@
     justify-content: center;
     align-items: center;
 }
+
+/* ////////////////////////////product.js/////////////////////// */
+.product-link{
+    text-decoration: none;
+    color: black;
+}
