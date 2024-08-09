@@ -4,9 +4,14 @@ import { SiShopee } from "react-icons/si";
 import { useAuth } from "../../Context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
+import { useCart } from "../../Context/cart";
+import useCategory from "../../hooks/useCategory";
+import {Badge} from 'antd';
 
 const Header = () => {
+  const categories = useCategory();
   const [auth, setAuth] = useAuth();
+  const [cart] = useCart();
   const handleLogout = () => {
     localStorage.removeItem("auth");
     setAuth({
@@ -44,10 +49,31 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/catagorie" className="nav-link">
-                  Catagorie
-                </NavLink>
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to={"/categories"}
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </Link>
+
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to={'/categories'} className="dropdown-item">
+                    All Categories
+                    </Link>
+                  </li>
+                  {categories?.map((c) => (
+                    <li>
+                      <Link to={`/category/${c.slug}`} className="dropdown-item">
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
               {!auth.user ? (
                 <>
@@ -75,29 +101,35 @@ const Header = () => {
                     </NavLink>
                     <ul className="dropdown-menu">
                       <li>
-                        <NavLink to={`/dashboard/${auth?.user?.role === 1 ?
-                          'admin' : 'user'
-                        }`} className="dropdown-item" >
+                        <NavLink
+                          to={`/dashboard/${
+                            auth?.user?.role === 1 ? "admin" : "user"
+                          }`}
+                          className="dropdown-item"
+                        >
                           Dashboard
                         </NavLink>
                       </li>
                       <li>
-                      <NavLink
-                      className="dropdown-item"
-                      onClick={handleLogout}
-                      to="/login"
-                    >
-                      Logout
-                    </NavLink>
-                    </li>
+                        <NavLink
+                          className="dropdown-item"
+                          onClick={handleLogout}
+                          to="/login"
+                        >
+                          Logout
+                        </NavLink>
+                      </li>
                     </ul>
                   </li>
                 </>
               )}
               <li className="nav-item">
+                <Badge count ={cart?.length}>
+
                 <NavLink to="/cart" className="nav-link">
-                  Cart(0)
+                  Cart 
                 </NavLink>
+                </Badge>
               </li>
             </ul>
           </div>
