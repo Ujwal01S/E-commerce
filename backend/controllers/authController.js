@@ -150,3 +150,37 @@ export const forgotPasswordController = async(req, res) => {
 export const testController = (req, res) => {
     res.send('protected cracked with token');
 };
+
+//update profile controller
+
+export const updateProfileController = async(req, res) => {
+    try {
+        const {name, email, password, address, phone} = req.body;
+        //request.body vitra dherai chij cha jastai uta user ko from bata patha ko info cha ra user vitra id cha
+        const user = await userModel.findById(req.user._id);
+        //password
+        if (password && password.length < 6){
+            return res.json({error: 'password is required and 6 char long'});
+        }
+        const hashedPassword = password ? hashPassword(password) : undefined;
+        const updatedUser = await userModel.findByIdAndUpdate(req.user._id, {
+            name: name || user.name,
+            email: email || user.email,
+            password: hashedPassword || user.password,
+            address: address || user.address,
+            phone : phone || user.phone,
+        } ,{new: true});
+        res.status(200).send({
+            success : true,
+            message : 'Profile Updated Successfully',
+            updatedUser,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({
+            success: false,
+            message: 'Error while updating profile',
+            error,
+        });
+    }
+};
