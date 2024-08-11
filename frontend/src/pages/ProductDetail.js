@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Layout from '../components/Layout/Layout'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import '../styles/ProductDetailsStyles.css';
 
 const ProductDetail = () => {
     const params = useParams();
@@ -36,7 +37,7 @@ const ProductDetail = () => {
 
   return (
     <Layout>
-        <div className='row container mt-4'>
+        <div className='row container product-details'>
             <div className='col-md-6'>
                 <img 
                 src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
@@ -44,7 +45,7 @@ const ProductDetail = () => {
                 alt={product.name}
                 />
             </div>
-            <div className='col-md-6'>
+            <div className='col-md-6' product-details-info>
                 <h2 className='text-center'>Product Details</h2>
                 <h6>Name: {product.name}</h6>
                 <h6>Description: {product.description}</h6>
@@ -54,7 +55,7 @@ const ProductDetail = () => {
             </div>
         </div>
         <hr></hr>
-        <div className='row'>
+        <div className='row container similar-products'>
             <h1>Similar Products</h1>
             {relatedProducts.length < 1 && (<p className='text-center'>No Similar Product found</p>) }
             <div className="d-flex flex-wrap">

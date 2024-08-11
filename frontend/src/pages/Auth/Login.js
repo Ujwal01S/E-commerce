@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import axios from 'axios';
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/auth";
+import "../../styles/AuthStyles.css";
 
 const Login = () => {
 

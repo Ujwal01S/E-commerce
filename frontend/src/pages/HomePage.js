@@ -7,6 +7,7 @@ import { Checkbox, Radio } from "antd";
 import { prices } from "../components/Prices";
 import { useCart } from "../Context/cart";
 import { useNavigate } from "react-router-dom";
+import '../styles/Homepage.css';
 
 const HomePage = () => {
   const [cart, setCart] = useCart();
@@ -120,7 +121,7 @@ const HomePage = () => {
   const [auth, setAuth] = useAuth();
   return (
     <Layout title={"Best Offers"}>
-      <div className="row mt-3">
+      <div className="container-fluid row mt-3">
         <div className="col-md-2">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
