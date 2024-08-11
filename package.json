@@ -7,7 +7,6 @@
     "frontend": "cd frontend && npm start",
     "backend": "cd backend && npm run server",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
-
   },
   "keywords": [],
   "author": "",
