@@ -25,7 +25,6 @@ const Register = () => {
             phone: phone,
             address:address,
         };
-        console.log(data);
         //sending the data to our backend
         try {
           const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,
@@ -57,7 +56,7 @@ const Register = () => {
   return (
     <>
       <Layout title={"Register - E-commerce App"}>
-        <div className="register">
+        <div className="form-container">
           <h1>Register Page</h1>
           <form onSubmit={handleSubmit}>
           <div className="mb-3">

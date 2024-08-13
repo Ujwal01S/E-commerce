@@ -135,3 +135,36 @@
     text-decoration: none;
     color: black;
 }
+
+/* ////////////////////////////////search form///////////////////////////// */
+
+.search-form {
+    margin-right: 10px;
+    margin-top: 4px;
+  }
+  .search-form input {
+    border: none;
+    border-radius: 0;
+  }
+  .search-form button {
+    background-color: #000000;
+    border-radius: 0;
+    color: white;
+  }
+
+  .btn-cate:hover{
+    background-color: rgb(115, 115, 200) !important;
+    padding: 8px 15px;
+    font-size: 19px;
+  }
+
+
+  .dashboard {
+    margin-top: 100px !important;
+  }
+  
+  .dashboard-menu h4 {
+    background-color: #434343 !important;
+    color: white;
+    padding: 20px 0px;
+  }

@@ -58,7 +58,7 @@ const Login = () => {
   return (
     <>
       <Layout title={"Login - E-commerce App"}>
-        <div className="login">
+        <div className="form-container">
           <h1>Login Page</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">

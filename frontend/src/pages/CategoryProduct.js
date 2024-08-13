@@ -29,10 +29,12 @@ const CategoryProduct = () => {
   return (
     <Layout>
 
-        <div className='container mt-3'>
+        {/* <div className='container mt-3'> */}
+        <div className="container mt-3 category">
             <h4 className='text-center'>catgegory-{category && category.name}</h4>
             <h6 className='text-center'>{products?.length} results found</h6>
             <div className='row'>
+            <div className="col-md-9 offset-1">
             <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
@@ -45,11 +47,13 @@ const CategoryProduct = () => {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}...</p>
                   <p className="card-text">$ {p.price}</p>
+                  <div className="card-name-price">
                   <button className="btn btn-primary ms-1"
                   onClick={() => navigate(`/product/${p.slug}`)}
                   >More Details</button>
-                  <button className="btn btn-secondary ms-1">Add To Cart</button>
+                  {/* <button className="btn btn-secondary ms-1">Add To Cart</button> */}
                 </div>
+              </div>
               </div>
             ))}
           </div>
@@ -67,6 +71,7 @@ const CategoryProduct = () => {
             )}
           </div> */}
             </div>
+        </div>
         </div>
     </Layout>
   )

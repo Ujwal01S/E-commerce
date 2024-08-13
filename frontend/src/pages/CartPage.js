@@ -88,7 +88,8 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="container">
+      {/* <div className="container"> */}
+      <div className=" cart-page">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 m-2">
@@ -103,6 +104,7 @@ const CartPage = () => {
             </h4>
           </div>
         </div>
+         <div className="container">  {/*extra */}
         <div className="row">
           <div className="col-md-7">
             {cart?.map((p) => (
@@ -116,10 +118,12 @@ const CartPage = () => {
                     width={"100px"}
                   />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-4">
                   <p>{p.name}</p>
                   <p>{p.description.substring(0, 30)}</p>
                   <p>Price : {p.price}</p>
+                  </div>
+                  <div className="col-md-4 cart-remove-btn">
                   <button
                     className="btn btn-danger"
                     onClick={() => removeCartItem(p._id)}
@@ -130,7 +134,7 @@ const CartPage = () => {
               </div>
             ))}
           </div>
-          <div className="col-md-4 ml-2">
+          <div className="col-md-4 cart-summary">
             <h2>Cart Summary</h2>
             <hr />
             <p>Total || CheckOut || Payment</p>
@@ -193,6 +197,7 @@ const CartPage = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   );

@@ -121,8 +121,8 @@ const HomePage = () => {
   const [auth, setAuth] = useAuth();
   return (
     <Layout title={"Best Offers"}>
-      <div className="container-fluid row mt-3">
-        <div className="col-md-2">
+      <div className="container-fluid row mt-3 home-page">
+        <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories.map((c) => (
@@ -148,7 +148,7 @@ const HomePage = () => {
         </div>
         <div className="col-md-9">
           
-          <h1>All Products</h1>
+          <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
@@ -158,9 +158,14 @@ const HomePage = () => {
                   alt={p.name}
                 />
                 <div className="card-body">
+                <div className="card-name-price">
                   <h5 className="card-title">{p.name}</h5>
+                  <h5>
+                  <p className="card-title card-price">$ {p.price}</p>
+                  </h5>
+                  </div>
                   <p className="card-text">{p.description.substring(0, 30)}...</p>
-                  <p className="card-text">$ {p.price}</p>
+                  <div className="card-name-price">
                   <button className="btn btn-primary ms-1"
                   onClick={() => navigate(`/product/${p.slug}`)}
                   >More Details</button>
@@ -175,12 +180,13 @@ const HomePage = () => {
                   >Add To Cart</button>
                 </div>
               </div>
+              </div>
             ))}
           </div>
           <div className="m-2 p-3">
             {products && products.length < total && (
               <button
-              className="btn btn-warning"
+              className="btn loadmore"
               onClick={(e) => {
                 e.preventDefault();
                 setPage(page + 1);

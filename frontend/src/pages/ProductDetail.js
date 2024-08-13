@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import Layout from '../components/Layout/Layout'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import '../styles/ProductDetailsStyles.css';
 
 const ProductDetail = () => {
+    const navigate = useNavigate();
     const params = useParams();
     const [product, setProduct] = useState({});
     const [relatedProducts, setRelatedProducts] = useState([]);
@@ -68,10 +69,17 @@ const ProductDetail = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
+                  <p className="card-title card-price">$ {p.price}</p>
                   <p className="card-text">{p.description.substring(0, 30)}...</p>
-                  <p className="card-text">$ {p.price}</p>
                   
-                  <button className="btn btn-secondary ms-1">Add To Cart</button>
+                  <div className="card-name-price">
+                  <button
+                    className="btn btn-info ms-1"
+                    onClick={() => navigate(`/product/${p.slug}`)}
+                  >
+                    More Details
+                  </button>
+                  </div>
                 </div>
               </div>
             ))}
