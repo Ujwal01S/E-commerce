@@ -5,7 +5,7 @@ This app has made use of various third party libraries.
 This app provides admin manually throw compass but as many users as desired are possible.
 The admin is determined by the role of 1.
 
-You will be able to create product based on categories.
+Only admin is allowed to create and delete products. 
 
 //////////////////////////////////////////////////////////Securitry//////////////////////////////////////////////////////////////
 Inorder to provide secure database and transcation app has made  use of JWT and Bycrpt.
