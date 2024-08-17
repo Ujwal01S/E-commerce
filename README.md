@@ -1,5 +1,11 @@
 
-///////////////////////////////////////////////////////////This is an E-commerce app///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////This is an E-commerce App
+Admin credential's
+admin@admin.com 
+password:asdfg
+
+
+
 The app is build using MERN stack.
 This app has made use of various third party libraries.
 This app provides admin manually throw compass but as many users as desired are possible.
