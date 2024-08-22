@@ -1,6 +1,6 @@
 
-////////////////////////////////This is an E-commerce App
-Admin credential's
+####################This is an E-commerce App#######
+Admin credential's:
 admin@admin.com 
 password:asdfg
 
